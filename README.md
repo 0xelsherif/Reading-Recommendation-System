@@ -25,15 +25,15 @@ The Reading Recommendation System is a web application built using Laravel that 
 ## Usage
 1. Add a reading interval: Send a POST request to /api/reading-intervals with the following JSON payload:
 
-'''
-{
-    "user_id": 1,
-    "book_id": 1,
-    "starting_page": 10,
-    "ending_page": 30
-}
+ ```
+    {
+        "user_id": 1,
+        "book_id": 1,
+        "starting_page": 10,
+        "ending_page": 30
+    }
 
-'''
+ ```
 2. Send a GET request to /api/recommended-books to retrieve the most read books. 
 
 ## Collection
