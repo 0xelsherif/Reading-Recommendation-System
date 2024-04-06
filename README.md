@@ -26,26 +26,70 @@ The Reading Recommendation System is a web application built using Laravel that 
 7. Start the development server by running `php artisan serve`.
 
 ## Usage
-1. Add a reading interval: Send a POST request to /api/reading-intervals with the following JSON payload:
+### 1. Submit a User Reading Interval
+    - Add a reading interval: Send a POST request to /api/reading-intervals with the following JSON payload:
 
- ```
-    {
-        "user_id": 1,
+    ```json
+        {
+            "user_id": 1,
+            "book_id": 1,
+            "starting_page": 10,
+            "ending_page": 30
+        }
+
+    ```
+    - Response:** 200 OK
+    ```json
+        {
+            "message": "Reading interval submitted successfully."
+        }
+
+        ```
+    - Response: Success message indicating the reading interval submission.
+    - SMS Sent: A thank you message is sent to the user using the configured SMS provider.
+
+### 2. Calculate the Most Recommended Five Books
+- Send a GET request to /api/recommended-books to retrieve the most read books. 
+- Response: 200 OK
+    ```json
+    [
+        {
         "book_id": 1,
-        "starting_page": 10,
-        "ending_page": 30
-    }
+        "book_name": "Clean Code",
+        "num_of_read_pages": "45"
+        },
+        {
+            "book_id": 2,
+            "book_name": "Harry Potter",
+            "num_of_read_pages": "21"
+        }
+    ]
+    ```
 
- ```
-
- - Response: Success message indicating the reading interval submission.
- - SMS Sent: A thank you message is sent to the user using the configured SMS provider.
-
-2. Send a GET request to /api/recommended-books to retrieve the most read books. 
-- Response: An array of books sorted by books with the most read pages first.
 ## Collection
 
 You can find a Postman collection with example requests in this [Postman Collection](https://github.com/0xelsherif/Reading-Recommendation-System/blob/master/postman_collection.json) file.
+
+### Unit Tests
+Unit tests are implemented using PHPUnit. To run the tests, execute the following command:
+
+```bash
+php artisan test
+```
+You should see output similar to the following:
+Attempt | Test Case | Duration
+PASS | submit reading interval | 1.30s |
+PASS | recommend books | 0.02s |
+
+Tests:    2 passed (4 assertions)
+Duration: 1.46s
+
+## Error Responses
+
+- 400 Bad Request: Invalid request format or missing required parameters.
+- 401 Unauthorized: Authentication failure.
+- 404 Not Found: Resource not found.
+- 500 Internal Server Error: Unexpected server error. 
 
 ## SMS Providers
 

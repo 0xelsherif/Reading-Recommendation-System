@@ -34,7 +34,8 @@ class ReadingIntervalController extends Controller
         SMSHelper::sendSMS($request->user_id, $smsProvider);
         
         // Return a success response
-        return response()->json(['message' => 'Reading interval added successfully'], 201);
+        return response()->json(['message' => 'Reading interval submitted successfully.'], 201);
+
 
     }
 
