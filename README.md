@@ -42,5 +42,5 @@ You can find a Postman collection with example requests in this [Postman Collect
 
 ## Author
 
-Ahmed Hamza El-Sherif
+&copy; Ahmed Hamza El-Sherif <br>
 Connect with me on [LinkedIn](https://www.linkedin.com/in/0xelsherif/) or check out my [GitHub profile](https://github.com/0xelsherif/).Feel free to drop me an [email](mailto:dev.ahmedelsherif@gmail.com).
