@@ -82,7 +82,7 @@ Attempt | Test Case | Duration
 PASS | submit reading interval | 1.30s 
 PASS | recommend books | 0.02s 
 
-Tests:    2 passed (4 assertions)
+Tests:    2 passed (4 assertions)<br>
 Duration: 1.46s
 
 ## Error Responses
