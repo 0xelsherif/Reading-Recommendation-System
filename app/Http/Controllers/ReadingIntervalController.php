@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\ReadingInterval;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Helpers\SMSHelper;
 
 
 class ReadingIntervalController extends Controller
@@ -21,6 +22,17 @@ class ReadingIntervalController extends Controller
         ]);
         // Create a new reading interval record
         ReadingInterval::create($request->all());
+
+        // Get the SMS provider from the environment variables
+        $smsProvider1 = env('SMS_PROVIDER_1');
+        $smsProvider2 = env('SMS_PROVIDER_2');
+
+        // Choose a default SMS provider if neither SMS_PROVIDER_1 nor SMS_PROVIDER_2 is set
+        $smsProvider = $smsProvider1 ?: $smsProvider2 ?: 'default_provider';
+
+        // Send SMS to thank the user
+        SMSHelper::sendSMS($request->user_id, $smsProvider);
+        
         // Return a success response
         return response()->json(['message' => 'Reading interval added successfully'], 201);
 
