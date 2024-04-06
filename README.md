@@ -44,7 +44,7 @@ The Reading Recommendation System is a web application built using Laravel that 
             "message": "Reading interval submitted successfully."
         }
 
-        ```
+    ```
 - Response: Success message indicating the reading interval submission.
 - SMS Sent: A thank you message is sent to the user using the configured SMS provider.
 
