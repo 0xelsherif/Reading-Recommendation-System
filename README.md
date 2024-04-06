@@ -27,7 +27,7 @@ The Reading Recommendation System is a web application built using Laravel that 
 
 ## Usage
 ### 1. Submit a User Reading Interval
-    - Add a reading interval: Send a POST request to /api/reading-intervals with the following JSON payload:
+- Add a reading interval: Send a POST request to /api/reading-intervals with the following JSON payload:
 
     ```json
         {
@@ -38,15 +38,15 @@ The Reading Recommendation System is a web application built using Laravel that 
         }
 
     ```
-    - Response:** 200 OK
+- Response:** 200 OK
     ```json
         {
             "message": "Reading interval submitted successfully."
         }
 
         ```
-    - Response: Success message indicating the reading interval submission.
-    - SMS Sent: A thank you message is sent to the user using the configured SMS provider.
+- Response: Success message indicating the reading interval submission.
+- SMS Sent: A thank you message is sent to the user using the configured SMS provider.
 
 ### 2. Calculate the Most Recommended Five Books
 - Send a GET request to /api/recommended-books to retrieve the most read books. 
@@ -78,8 +78,9 @@ php artisan test
 ```
 You should see output similar to the following:
 Attempt | Test Case | Duration
-PASS | submit reading interval | 1.30s |
-PASS | recommend books | 0.02s |
+--- | --- | --- 
+PASS | submit reading interval | 1.30s 
+PASS | recommend books | 0.02s 
 
 Tests:    2 passed (4 assertions)
 Duration: 1.46s
